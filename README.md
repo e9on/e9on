@@ -20,9 +20,31 @@
 
 ## 🚀 프로젝트
 
+### 🗂️ Approval Planner — 승인이 없으면 기본은 거부하는 결재 운영 시스템
+
+`개인` `AX 인재전쟁 ONLINE 삼일PwC 예선` `2026.11` · [저장소](https://github.com/e9on/axwar) · [배포](https://approval-planner-arlb.axhub.app)
+
+```mermaid
+flowchart LR
+    A["원본 데이터<br/>주문 · 반품 · 현금"] --> B["계산<br/>실질 ROAS · 현금 흐름"]
+    B --> C["규칙<br/>승인권자 · 기한 · 수량"]
+    D["AI<br/>부서 회신 · 리뷰 해석"] --> C
+    C --> E["사람 결정<br/>승인 · 분할 · 거절"]
+    E --> F["상태 저장<br/>할 일 · 알림"]
+    C -->|"기한까지 승인 없음"| G["기본 거부<br/>조건변경 통보 초안"]
+```
+
+- **기본값을 거부로** — 무응답이면 계약이 자동 갱신되는 구조를 뒤집어, 기한 전에 시스템이 먼저 경고하고 승인이 없으면 조건변경 통보와 확정 보류로 처리
+- **원본 데이터 재계산** — 주문 단위로 순액을 다시 계산해 광고비 1위 인플루언서의 실질 ROAS가 음수인 배분 역전과, 공식 재무 전망이 놓친 현금 부족 구간을 찾음
+- **규칙은 결정, AI는 해석** — 승인권자 · 기한 · 수량은 규칙이 정하고, AI는 부서 회신 해석과 브리핑 작성만. AI 모델 8개를 문제 60개 × 3회로 평가해 사람 확인이 필요한 회신을 놓치지 않는 모델을 선정
+
+![Python](https://img.shields.io/badge/Python-3776AB?style=flat-square&logo=python&logoColor=white) ![FastAPI](https://img.shields.io/badge/FastAPI-009688?style=flat-square&logo=fastapi&logoColor=white) ![SQLite](https://img.shields.io/badge/SQLite-003B57?style=flat-square&logo=sqlite&logoColor=white) ![React](https://img.shields.io/badge/React-61DAFB?style=flat-square&logo=react&logoColor=black) ![TypeScript](https://img.shields.io/badge/TypeScript-3178C6?style=flat-square&logo=typescript&logoColor=white) ![Claude Code](https://img.shields.io/badge/Claude_Code-D97757?style=flat-square&logo=claude&logoColor=white)
+
+<br>
+
 ### 💄 nudy — 참고 사진의 화장을 내 얼굴에 옮겨 따라 하게 해 주는 화장 코치
 
-`팀 6명` `통합 · 피드백 담당` `2026.09 ~ 2026.10` · [저장소](https://github.com/1DAN-2ZO/support-yr-makeup)
+`팀 6명` `팀장 · 통합 · 피드백 담당` `2026.09 ~ 2026.10` · [저장소](https://github.com/1DAN-2ZO/support-yr-makeup)
 
 ```mermaid
 flowchart LR
