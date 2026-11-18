@@ -56,7 +56,7 @@ flowchart LR
     F --> G["정답 대비 피드백<br/>Lab 색공간"]
 ```
 
-- **FLUX 이미지 생성 중계 API** — FastAPI · httpx로 GPU의 모델 서버를 호출하고, `asyncio.Lock`과 전체 시간 한도 85초로 요청 줄을 관리
+- **FLUX 이미지 생성 중계 API** — FastAPI · httpx로 GPU의 모델 서버를 호출하고, `asyncio.Lock`으로 요청 줄을 관리하고, 연결이 끊긴 요청은 바로 취소
 - **정답사진 대비 피드백 엔진** — 얼굴 랜드마크로 부위별 구역을 만들고 Lab 색공간에서 변화량을 계산해 부위별 문장 생성
 - **통합 · 리뷰** — CI와 강제 푸시 방지 훅을 구축하고 팀원 PR 195건을 로컬 검증 후 병합
 
@@ -82,7 +82,7 @@ flowchart LR
 ```
 
 - **FSM 대화 상태 관리** — 상태 4개 · 이벤트 20개의 전이표와 검증기로 현재 상태에서 허용되지 않는 요청을 차단
-- **룰 엔진 + LLM 이중 구조** — 대부분의 주문은 룰로 처리하고 자유로운 말만 LLM으로 전달 (평균 응답 514ms / LLM 경유 1,399ms)
+- **룰 엔진 + LLM 이중 구조** — 대부분의 주문은 룰로 처리하고 자유로운 말만 LLM으로 전달 (평균 응답 0.51초 / LLM 경유 1.40초)
 - **LLM 출력 검증과 롤백** — LLM이 낸 이벤트를 전이표로 검증하고, 실패하면 세션 스냅샷으로 복원
 
 ![Python](https://img.shields.io/badge/Python-3776AB?style=flat-square&logo=python&logoColor=white) ![FastAPI](https://img.shields.io/badge/FastAPI-009688?style=flat-square&logo=fastapi&logoColor=white) ![WebSocket](https://img.shields.io/badge/WebSocket-010101?style=flat-square&logo=socketdotio&logoColor=white) ![MySQL](https://img.shields.io/badge/MySQL-4479A1?style=flat-square&logo=mysql&logoColor=white) ![faster-whisper](https://img.shields.io/badge/faster--whisper-111111?style=flat-square) ![ChromaDB](https://img.shields.io/badge/ChromaDB-FF6F00?style=flat-square) ![React](https://img.shields.io/badge/React-61DAFB?style=flat-square&logo=react&logoColor=black)
